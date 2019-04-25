@@ -14,10 +14,10 @@ export default class Paddle {
         document.addEventListener("keydown", event => {
             switch (event.key) {
                 case up:
-                    console.log("up");
+                   this.up();
                     break;
                 case down:
-                    console.log("down");
+                    this.down();
                     break;
             }
         });
