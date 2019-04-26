@@ -1,7 +1,9 @@
 import Board from './Board';
 import Paddle from './Paddle';
+import Score from './Score';
 import { SVG_NS, KEYS } from '../settings';
 import Ball from './Ball';
+import { maxHeaderSize } from 'http';
 
 export default class Game {
 
@@ -38,11 +40,29 @@ export default class Game {
       KEYS.down
     );
 
+    this.score1 = new Score(this.width / 2 - 50, 30, 30);
+    this.score2 = new Score(this.width / 2 - 25, 30, 30);
+
     this.ball = new Ball(8, this.width, this.height);
+
+    document.addEventListener('keydown', event => {
+      switch (event.key) {
+
+        case KEYS.spaceBar:
+          this.pause = !this.pause;
+          break;
+
+
+      }
+    });
 
   }//end of construtor
 
   render() {
+
+    if (this.pause) {
+      return;
+    }
 
     // be sure to empty out the last frame before re-rendering
     this.gameElement.innerHTML = '';
@@ -57,6 +77,9 @@ export default class Game {
     this.player1.render(svg);
     this.player2.render(svg);
     this.ball.render(svg, this.player1, this.player2);
+
+    this.score1.render(svg, this.player1.score);
+    this.score2.render(svg, this.player2.score);
 
 
   }
