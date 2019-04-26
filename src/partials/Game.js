@@ -1,6 +1,8 @@
 import Board from './Board';
 import Paddle from './Paddle';
+import ball from './Ball';
 import { SVG_NS, KEYS } from '../settings';
+import Ball from './Ball';
 
 export default class Game {
 
@@ -37,10 +39,9 @@ export default class Game {
       KEYS.down
     );
 
-    console.log(this.player1);
-    console.log(this.player2);
+    this.ball = new Ball(8, this.width, this.height);
 
-  }
+  }//end of construtor
 
   render() {
 
@@ -56,6 +57,8 @@ export default class Game {
     this.board.render(svg);
     this.player1.render(svg);
     this.player2.render(svg);
+    this.ball.render(svg);
+
 
   }
 

@@ -8,7 +8,7 @@ export default class Paddle {
         this.height = height;
         this.x = x;
         this.y = y;
-        this.speed = 10;
+        this.speed = 20;
         this.score = 0;
 
         document.addEventListener("keydown", event => {
@@ -24,6 +24,9 @@ export default class Paddle {
     }//END OF CONSTRuCTOR
 
     up() {
+        //get you max number
+        //either 0 or the y posistion minus speed
+        //current y posistion of the paddle - 10x everytime the game loop is running
         this.y = this.y - this.speed;
         this.y = Math.max(0, this.y - this.speed);
     }
