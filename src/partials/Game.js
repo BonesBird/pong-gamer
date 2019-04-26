@@ -1,6 +1,5 @@
 import Board from './Board';
 import Paddle from './Paddle';
-import ball from './Ball';
 import { SVG_NS, KEYS } from '../settings';
 import Ball from './Ball';
 
@@ -57,9 +56,8 @@ export default class Game {
     this.board.render(svg);
     this.player1.render(svg);
     this.player2.render(svg);
-    this.ball.render(svg);
+    this.ball.render(svg, this.player1, this.player2);
 
 
   }
-
 }
