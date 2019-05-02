@@ -3,6 +3,7 @@ import Paddle from './Paddle';
 import Score from './Score';
 import { SVG_NS, KEYS } from '../settings';
 import Ball from './Ball';
+
 import { maxHeaderSize } from 'http';
 
 export default class Game {
@@ -84,3 +85,4 @@ export default class Game {
 
   }
 }
+
